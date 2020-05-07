@@ -6,9 +6,9 @@ O que faz? É um jogo de adivinhação de numero, podemos chutar um numero de 0 
 def da_boas_vindas
   puts "Bem vindo ao jogo de adivinhação"
   puts "Qual é o seu nome?"
-  nome = gets
+  nome = gets.strip
   puts "\n\n\n\n\n"
-  puts "Começaremos o jogo para você, " +nome
+  puts "Começaremos o jogo para você, #{nome}"
   
 end
 
@@ -19,18 +19,19 @@ def sorteia_numero_secreto
   sorteado
 end  
 
-def pede_um_numero(tentativa, limite_de_tentativas)
-	puts "Tentativa : #{tentativa} de " + limite_de_tentativas.to_s
+def pede_um_numero(chutes, tentativa, limite_de_tentativas)
+	puts "Tentativa : #{tentativa} de #{limite_de_tentativas}"
+	puts "Chutes até agora: #{chutes}"
 	puts "Entre com o número (<200)"
-	chute = gets
-	puts "Será que acertou? você chutou " + chute
+	chute = gets.strip
+	puts "Será que acertou? você chutou #{chute}"
 	chute.to_i
 end
 
 def verifica_se_acertou(numero_secreto, chute, tentativa)
 	acertou = chute == numero_secreto
 	if acertou
-  		puts "Acertou! apenas com #{tentativa} tentativas!!"
+  		puts "Acertou! Com apenas #{tentativa} tentativas!!"
   		return true
 	end
 	maior = numero_secreto > chute
@@ -46,11 +47,15 @@ da_boas_vindas
 numero_secreto = sorteia_numero_secreto
 
 limite_de_tentativas = 5
+chutes = []
 
-puts "Você terá " + limite_de_tentativas.to_s + " tentativas! Boa Sorte!"
+puts "Você terá #{limite_de_tentativas} tentativas! Boa Sorte!"
 
 for tentativa in 1..limite_de_tentativas
-	chute = pede_um_numero tentativa, limite_de_tentativas
+	
+	chute = pede_um_numero chutes, tentativa, limite_de_tentativas
+	chutes << chute
+	
 	if verifica_se_acertou numero_secreto, chute, tentativa
 		break
 	end
