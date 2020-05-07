@@ -49,8 +49,8 @@ limite_de_tentativas = 5
 puts "Você terá " + limite_de_tentativas.to_s + " tentativas! Boa Sorte!"
 
 for tentativa in 1..limite_de_tentativas
-	chute = pede_um_numero(tentativa, limite_de_tentativas)
-	if verifica_se_acertou(numero_secreto,chute, tentativa)
+	chute = pede_um_numero tentativa, limite_de_tentativas
+	if verifica_se_acertou numero_secreto, chute, tentativa
 		break
 	end
 end
