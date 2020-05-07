@@ -3,16 +3,17 @@ Este é meu primeiro programa em ruby. estou aprendendo a desenvolver e este é 
 O que faz? É um jogo de adivinhação de numero, podemos chutar um numero de 0 a 200 e temos uma quantilidade limitada para adivinhar.
 =end
 
-# da boas vindas
-puts("Bem vindo ao jogo de adivinhação")
-puts "Qual é o seu nome?"
-nome = gets
-puts "\n\n\n\n\"
-puts "Começaremos o jogo para você, " + nome
-puts "Escolhendo um número secreto entre 0 e 200..."
-puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
-puts "\n\n\n\n\n"
+def da_boas_vindas
+  puts "Bem vindo ao jogo de adivinhação"
+  puts "Qual é o seu nome?"
+  nome = gets
+  puts "\n\n\n\n\n"
+  puts "Começaremos o jogo para você, " +nome
+  puts "Escolhendo um número secreto entre 0 e 200..."
+  puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
+end
 
+da_boas_vindas
 
 numero_secreto = 175
 
