@@ -1,19 +1,20 @@
 =begin
 Este é meu primeiro programa em ruby. estou aprendendo a desenvolver e este é o primeiro exercicio sugerido no curso online da Alura.
-
 O que faz? É um jogo de adivinhação de numero, podemos chutar um numero de 0 a 200 e temos uma quantilidade limitada para adivinhar.
-
 =end
 
-numero_secreto = 175
+# da boas vindas
 puts("Bem vindo ao jogo de adivinhação")
 puts "Qual é o seu nome?"
 nome = gets
-puts "\n\n"
+puts "\n\n\n\n\"
 puts "Começaremos o jogo para você, " + nome
 puts "Escolhendo um número secreto entre 0 e 200..."
 puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
 puts "\n\n\n\n\n"
+
+
+numero_secreto = 175
 
 # quantidade de tentativas
 limite_de_tentativas = 5
