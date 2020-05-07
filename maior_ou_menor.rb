@@ -46,6 +46,7 @@ da_boas_vindas
 numero_secreto = sorteia_numero_secreto
 
 limite_de_tentativas = 5
+
 puts "Você terá " + limite_de_tentativas.to_s + " tentativas! Boa Sorte!"
 
 for tentativa in 1..limite_de_tentativas
