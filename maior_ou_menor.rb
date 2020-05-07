@@ -9,35 +9,48 @@ def da_boas_vindas
   nome = gets
   puts "\n\n\n\n\n"
   puts "Começaremos o jogo para você, " +nome
-  puts "Escolhendo um número secreto entre 0 e 200..."
-  puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
+  
 end
 
-da_boas_vindas
+def sorteia_numero_secreto
+  puts "Escolhendo um número secreto entre 0 e 200..."
+  sorteado = 175
+  puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
+  sorteado
+end  
 
-numero_secreto = 175
-
-# quantidade de tentativas
-limite_de_tentativas = 5
-puts "Você terá " + limite_de_tentativas.to_s + " tentativas! Boa Sorte!"
-
-for tentativa in 1..limite_de_tentativas
+def pede_um_numero(tentativa, limite_de_tentativas)
 	puts "Tentativa : #{tentativa} de " + limite_de_tentativas.to_s
 	puts "Entre com o número (<200)"
 	chute = gets
 	puts "Será que acertou? você chutou " + chute
+	chute.to_i
+end
 
-	# Verificando se acertou, utilizando condicional if e else.
-	acertou = chute.to_i == numero_secreto
+def verifica_se_acertou(numero_secreto, chute, tentativa)
+	acertou = chute == numero_secreto
 	if acertou
   		puts "Acertou! apenas com #{tentativa} tentativas!!"
-  		break
+  		return true
+	end
+	maior = numero_secreto > chute
+	if maior
+		puts "O número secreto é maior! Tente um número maior >>>"		
 	else
-		maior = numero_secreto > chute.to_i
-		if maior
-			puts "O número secreto é maior! Tente um número maior >>>"		
-		else
-			puts "O número secreto é menor! Tente um número menor <<<"
-		end
+		puts "O número secreto é menor! Tente um número menor <<<"
+	end
+	false
+end
+
+da_boas_vindas
+numero_secreto = sorteia_numero_secreto
+
+limite_de_tentativas = 5
+puts "Você terá " + limite_de_tentativas.to_s + " tentativas! Boa Sorte!"
+
+for tentativa in 1..limite_de_tentativas
+	chute = pede_um_numero(tentativa, limite_de_tentativas)
+	if verifica_se_acertou(numero_secreto,chute, tentativa)
+		break
 	end
 end
