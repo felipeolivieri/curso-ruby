@@ -14,7 +14,7 @@ end
 
 def sorteia_numero_secreto
   puts "Escolhendo um número secreto entre 0 e 200..."
-  sorteado = 175
+  sorteado = rand(200)
   puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
   sorteado
 end  
@@ -22,7 +22,7 @@ end
 def pede_um_numero(chutes, tentativa, limite_de_tentativas)
 	puts "Tentativa : #{tentativa} de #{limite_de_tentativas}"
 	puts "Chutes até agora: #{chutes}"
-	puts "Entre com o número (<200)"
+	puts "Entre com o número"
 	chute = gets.strip
 	puts "Será que acertou? você chutou #{chute}"
 	chute.to_i
