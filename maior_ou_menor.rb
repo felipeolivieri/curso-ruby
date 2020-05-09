@@ -21,7 +21,9 @@ def da_boas_vindas
 end
 
 def pede_dificuldade
-	puts "Qual o nivel de dificuldade que deseja? (1 fácil, 5 difícil)"
+	puts "Qual o nivel de dificuldade que deseja?"
+	puts "(1) Muito fácil, (2) Fácil, (3) Normal, (4) Difícil, (5) Impossível"
+	puts "Escolha: "
 	dificuldade = gets.to_i
 end
 
@@ -56,7 +58,8 @@ end
 def verifica_se_acertou(numero_secreto, chute, tentativa)
 	acertou = chute == numero_secreto
 	if acertou
-  		puts "Acertou! Com apenas #{tentativa} tentativas!!"
+		ganhou
+  		puts "Com apenas #{tentativa} tentativas!!"
   		return true
 	end
 	maior = numero_secreto > chute
@@ -67,6 +70,29 @@ def verifica_se_acertou(numero_secreto, chute, tentativa)
 	end
 	false
 end
+
+def ganhou
+	puts
+	puts "             OOOOOOOOOOO               "
+	puts "         OOOOOOOOOOOOOOOOOOO           "
+	puts "      OOOOOO  OOOOOOOOO  OOOOOO        "
+	puts "    OOOOOO      OOOOO      OOOOOO      "
+	puts "  OOOOOOOO  #   OOOOO  #   OOOOOOOO    "
+	puts " OOOOOOOOOO    OOOOOOO    OOOOOOOOOO   "
+	puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  "
+	puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  "
+	puts "OOOO  OOOOOOOOOOOOOOOOOOOOOOOOO  OOOO  "
+	puts " OOOO  OOOOOOOOOOOOOOOOOOOOOOO  OOOO   "
+	puts "  OOOO   OOOOOOOOOOOOOOOOOOOO  OOOO    "
+	puts "    OOOOO   OOOOOOOOOOOOOOO   OOOO     "
+	puts "      OOOOOO   OOOOOOOOO   OOOOOO      "
+	puts "         OOOOOO         OOOOOO         "
+	puts "             OOOOOOOOOOOO              "
+	puts
+	puts "               Acertou!                "
+	puts
+end
+
 
 def joga(nome, dificuldade)
 	numero_secreto = sorteia_numero_secreto(dificuldade)
@@ -81,7 +107,7 @@ def joga(nome, dificuldade)
 		chutes << chute
 		
 		if nome == "Felipe"
-			puts "Acertou!"
+			ganhou
 			break
 		end
 		pontos_a_perder = (chute - numero_secreto).abs/2.0
