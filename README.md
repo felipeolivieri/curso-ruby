@@ -1,6 +1,7 @@
 # curso-ruby
 
 Neste código escrevi um jogo para adivinhar numeros aleatórios entre 0 e 200. 
+escolhendo a dificuldade (1 a 5) esse intervalo pode diminuir, ficando mais facil.
 
 no código aprendi a usar funções, evitar usar variáveis globais, organizar código para ser fácil de ler etc. 
 Sempre tentando o máximo possível utilizar boas práticas para escrever um código.
