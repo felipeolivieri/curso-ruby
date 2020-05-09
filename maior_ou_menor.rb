@@ -62,11 +62,11 @@ end
 
 def joga(nome, dificuldade)
 	numero_secreto = sorteia_numero_secreto(dificuldade)
-pontos_ate_agora = 1000
-limite_de_tentativas = 5
-chutes = []
+	pontos_ate_agora = 1000
+	limite_de_tentativas = 5
+	chutes = []
 
-puts "Você terá #{limite_de_tentativas} tentativas! Boa Sorte!"
+	puts "Você terá #{limite_de_tentativas} tentativas! Boa Sorte!"
 	for tentativa in 1..limite_de_tentativas
 		
 		chute = pede_um_numero chutes, tentativa, limite_de_tentativas
@@ -88,17 +88,20 @@ puts "Você terá #{limite_de_tentativas} tentativas! Boa Sorte!"
 end
 
 
-def quer_jogar
+def nao_quer_jogar?
 	puts "Deseja jogar novamente? (S/N)"
-	quero_jogar = gets.strip
-	quero_jogar.upcase == "S"
+	nao_quero_jogar = gets.strip
+	nao_quero_jogar.upcase == "N"
 end
 
 
 nome = da_boas_vindas
 dificuldade = pede_dificuldade
 
-while quer_jogar
+loop do
 	joga nome, dificuldade
+	if nao_quer_jogar?
+		break
+	end
 end
 
